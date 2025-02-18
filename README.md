@@ -111,3 +111,45 @@ result_label.pack(pady=10)
 
 root.mainloop()
 
+
+
+....
+import java.util.Scanner;
+
+public class EvenSumCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Get the number of elements from the user
+        System.out.print("Enter the number of elements: ");
+        int n = scanner.nextInt();
+        int[] array = new int[n];
+
+        // Read elements into the array
+        System.out.println("Enter " + n + " numbers:");
+        for (int i = 0; i < n; i++) {
+            array[i] = scanner.nextInt();
+        }
+
+        // Calculate the sum of even numbers
+        int sum = calculateEvenSum(array);
+
+        // Display the result
+        System.out.println("Sum of even numbers: " + sum);
+
+        scanner.close();
+    }
+
+    // Method to calculate the sum of even numbers in an array
+    public static int calculateEvenSum(int[] arr) {
+        int sum = 0;
+        for (int num : arr) {
+            if (num % 2 == 0) {
+                sum += num;
+            }
+        }
+        return sum;
+    }
+}
+
+

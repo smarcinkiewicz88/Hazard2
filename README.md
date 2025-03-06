@@ -153,3 +153,57 @@ public class EvenSumCalculator {
 }
 
 
+
+
+
+
+
+# Klasa bazowa Vehicle
+class Vehicle:
+    def __init__(self, name, speed, capacity):
+        self.name = name
+        self.speed = speed
+        self.capacity = capacity
+
+    def show_info(self):
+        return f"{self.name}: Prędkość {self.speed} km/h, Pojemność {self.capacity} osób"
+
+# Klasy dziedziczące
+class LandVehicle(Vehicle):
+    def __init__(self, name, speed, capacity, wheels):
+        super().__init__(name, speed, capacity)
+        self.wheels = wheels
+
+    def show_info(self):
+        return super().show_info() + f", Liczba kół: {self.wheels}"
+
+class AirVehicle(Vehicle):
+    def __init__(self, name, speed, capacity, altitude):
+        super().__init__(name, speed, capacity)
+        self.altitude = altitude
+
+    def show_info(self):
+        return super().show_info() + f", Maksymalna wysokość: {self.altitude} m"
+
+class WaterVehicle(Vehicle):
+    def __init__(self, name, speed, capacity, displacement):
+        super().__init__(name, speed, capacity)
+        self.displacement = displacement
+
+    def show_info(self):
+        return super().show_info() + f", Wyporność: {self.displacement} ton"
+
+# Tworzenie instancji
+land1 = LandVehicle("Samochód", 120, 5, 4)
+land2 = LandVehicle("Motocykl", 180, 2, 2)
+
+air1 = AirVehicle("Samolot", 900, 180, 12000)
+air2 = AirVehicle("Helikopter", 250, 5, 6000)
+
+water1 = WaterVehicle("Statek", 50, 500, 30000)
+water2 = WaterVehicle("Łódź", 80, 10, 50)
+
+# Wyświetlanie informacji
+vehicles = [land1, land2, air1, air2, water1, water2]
+for v in vehicles:
+    print(v.show_info())
